@@ -49,6 +49,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_01_140126) do
     t.string "insno", comment: "ISBN"
     t.uuid "folder_id", null: false
     t.uuid "language_id", null: false
+    t.index ["folder_id", "libid"], name: "idx_on_folder_id_libid", unique: true
     t.index ["folder_id"], name: "index_books_on_folder_id"
     t.index ["language_id"], name: "index_books_on_language_id"
   end
