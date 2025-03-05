@@ -1,6 +1,6 @@
 RSpec.describe 'Admin::BooksController', type: :feature do
   let(:user) { create(:admin_user) }
-  let!(:book) { create(:book_with_authors) }
+  let!(:book) { create(:book_with_authors, libid: 3064) }
   before(:each) { login(user) }
 
   context 'на главной странице' do
