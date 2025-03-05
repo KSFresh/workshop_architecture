@@ -35,4 +35,12 @@ RSpec.describe 'Books index', type: :request do
       expect(JSON.parse(response.body).size).to eq(Settings.app.items_per_page)
     end
   end
+
+  context 'when page param does not passed' do
+    it 'returns books in batch as for the first page' do
+      get '/books'
+      expect(JSON.parse(response.body)).to be_an(Array)
+      expect(JSON.parse(response.body).size).to eq(Settings.app.items_per_page)
+    end
+  end
 end
