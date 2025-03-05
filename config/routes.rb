@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :admin_users
   root to: redirect('/admin/') # if Routing::Admin.present?
+
+  get "books/:page", to: "books#index"
   # namespace :admin do
   #   # root to: 'home#index', as: :root
 

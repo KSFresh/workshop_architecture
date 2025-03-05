@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :book do
     title { FFaker::Book.title }
-    libid { 3064 }
+    sequence(:libid) { |n| n + 1 }
     size { 9836 }
     filename { 3064 }
     ext { 'fb2' }
