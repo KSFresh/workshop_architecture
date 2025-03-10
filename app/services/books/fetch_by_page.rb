@@ -6,9 +6,8 @@ class Books::FetchByPage
   option :items_per_page, type: Dry::Types['strict.integer'], default: -> { Settings.app.items_per_page }
 
   def call
-    Book
-      .includes(:language, :authors)
-      .order(:id)
+    BooksIndex
+      .asc(:title)
       .limit(items_per_page)
       .offset(offset)
   end
