@@ -7,6 +7,7 @@ gem 'alba'
 
 # Базы данных
 gem 'pg'
+gem 'mongoid'
 
 # Многопоточное выполнение
 gem 'parallel'
