@@ -6,6 +6,13 @@ services:
       POSTGRES_PASSWORD: 'postgres'
     volumes:
       - db:/var/lib/postgresql/data
+  mongo:
+    image: mongo:6.0
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - db:/data/db
   web:
     tty: true
     stdin_open: true
@@ -27,11 +34,15 @@ services:
       - "8080:3000"
     depends_on:
       - db
+      - mongo
     environment:
       RAILS_LOG_TO_STDOUT: 'yes'
       PAGER: 'more'
       POSTGRES_HOST: 'db'
       POSTGRES_USER: 'postgres'
       POSTGRES_PASSWORD: 'postgres'
+      MONGO_USER: 'mongo'
+      MONGO_PASSWORD: 'mongo'
 volumes:
   db:
+  mongo-db:
