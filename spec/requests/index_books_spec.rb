@@ -1,7 +1,5 @@
 RSpec.describe 'Books index', type: :request do
-  let(:language) { create(:language) }
-  let(:folder) { create(:folder) }
-  let!(:books) { create_list(:book, Settings.app.items_per_page + 1, language: language, folder: folder) }
+  let!(:books) { create_list(:books_index, Settings.app.items_per_page + 1) }
 
   it 'returns books in batch' do
     get '/books/1'
